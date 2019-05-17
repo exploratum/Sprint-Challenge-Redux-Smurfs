@@ -40,3 +40,14 @@ export const addSmurf = (smurf) => (dispatch) => {
     .then(res => { console.log(res.data); dispatch({type: ADD_SMURF_SUCCESS, payload: res.data})})
     .catch(err => dispatch({type: ADD_SMURF_FAILURE, payload: err}))
 }
+
+export const UPDATING_SMURF_STARTED = 'UPDATING_SMURF_STARTED';
+export const UPDATING_SMURF_SUCCESS = 'UPDATING_SMURF_SUCCESS';
+export const UPDATING_SMURF_FAILURE = 'UPDATING_SMURF_FAILURE'
+export const updateSmurf = smurf => dispatch => {
+  dispatch({type: UPDATING_SMURF_STARTED});
+  axios
+    .put(`http://localhost:3333/smurfs/${smurf.id}`, smurf)
+    .then(res=> dispatch({type: UPDATING_SMURF_SUCCESS, payload: res.data}))
+    .catch(err => dispatch({type: UPDATING_SMURF_FAILURE, payload: err}))
+}

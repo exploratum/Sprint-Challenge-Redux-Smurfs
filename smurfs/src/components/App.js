@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {Route} from 'react-router-dom'
 import SmurfList from './SmurfList'
+import UpdateForm from './UpdateForm'
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -13,7 +14,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
-        <Route path="/" component={SmurfList} />
+        <Route exact path="/" component={SmurfList} />
+        <Route path="/smurfs/:id" component={UpdateForm} />
       </div>
     );
   }

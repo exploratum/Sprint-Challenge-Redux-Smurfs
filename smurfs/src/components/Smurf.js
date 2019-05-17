@@ -1,5 +1,7 @@
 import React from 'react'
 
+import {Link} from 'react-router-dom'
+
 const Smurf = (props) => {
     return(
         <div className='smurf'>
@@ -7,6 +9,7 @@ const Smurf = (props) => {
                 age: ${props.smurf.age}, 
                 height: ${props.smurf.height}`}
             </p>
+            <button><Link to={`/smurfs/${props.smurf.id}`}>select</Link></button>
         </div>
     )
 }
