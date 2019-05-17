@@ -47,7 +47,7 @@ class SmurfList extends React.Component {
                             value={this.state.name}
                             onChange={this.handleChange}
                         /> <br/>
-                        age: <input 
+                        age:<input 
                             type='number' 
                             name='age' 
                             value={this.state.age}
