@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {updateSmurf} from '../actions'
+import {updateSmurf, deleteSmurf} from '../actions'
 
 class UpdateForm extends React.Component{
 
@@ -24,7 +24,12 @@ class UpdateForm extends React.Component{
         event.preventDefault();
         this.props.updateSmurf(this.state.foundSmurf);
         this.props.history.push('/');
+    }
 
+    handleDelete = (event) => {
+        event.preventDefault();
+        this.props.deleteSmurf(this.state.foundSmurf);
+        this.props.history.push('/');
     }
 
 
@@ -57,7 +62,8 @@ class UpdateForm extends React.Component{
                             onChange={this.handleChange}
                         /><br/>
 
-                        <button type='submit' onClick={this.handleUpdate}>Submit</button>
+                        <button type='submit' onClick={this.handleUpdate}>update</button>
+                        <button type='submit' onClick={this.handleDelete}>delete</button>
                     </fieldset>
                 </div>
             );
@@ -70,4 +76,4 @@ class UpdateForm extends React.Component{
 const mapStateToProps = state => ({
     smurfs: state.smurfs
 })
-export default connect(mapStateToProps, {updateSmurf})(UpdateForm);
+export default connect(mapStateToProps, {updateSmurf, deleteSmurf})(UpdateForm);

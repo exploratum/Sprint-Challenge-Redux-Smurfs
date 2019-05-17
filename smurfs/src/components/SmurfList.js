@@ -55,7 +55,7 @@ class SmurfList extends React.Component {
 
                         /> <br/>
                         height: <input 
-                            type='number' 
+                            type='text' 
                             name='height' 
                             value={this.state.height}
                             onChange={this.handleChange}
